@@ -1,4 +1,11 @@
 from django.shortcuts import render
+from django.http import HttpResponse
+from .models import Ubezpieczenie
+
+def test_response(request):
+    wszystkie = Ubezpieczenie.objects.all()
+    return HttpResponse("To jest nasz pierwszy test")
+
 '''
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Film, DodatkoweInfo, Ocena

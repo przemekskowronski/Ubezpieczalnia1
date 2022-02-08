@@ -6,6 +6,11 @@ def test_response(request):
     wszystkie = Ubezpieczenie.objects.all()
     return HttpResponse("To jest nasz pierwszy test")
 
+def wszystkie_ubezpieczenia(request):
+    wszystkie = Ubezpieczenie.objects.all()
+    return render(request, 'ubezpieczenia.html', {'ubezpieczenie': wszystkie})
+
+
 '''
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Film, DodatkoweInfo, Ocena

@@ -25,6 +25,9 @@ class Ubezpieczenie(models.Model):
     plakat = models.ImageField(upload_to="plakaty", null=True, blank=True)
     dodatkowe = models.OneToOneField(DodatkoweInfo, on_delete=models.CASCADE, null=True, blank=True)
 
+    def __str__(self):
+        return self.tytul
+
 class Ocena(models.Model):
     recenzja = models.TextField(default="", blank=True)
     gwiazdki = models.PositiveSmallIntegerField(default=5)

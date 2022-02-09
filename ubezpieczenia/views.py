@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Ubezpieczenie
+from .forms import OcenaForm
 
 def test_response(request):
     wszystkie = Ubezpieczenie.objects.all()
@@ -15,6 +16,14 @@ def login(request):
 def index(request):
     wszystkie = Ubezpieczenie.objects.all()
     return render(request, 'index.html', {'ubezpieczenie': wszystkie})
+
+def ocena_ubezpieczenia(request):
+    form = OcenaForm(request.POST or None, request.FILES or None)
+
+    if form.is_valid():
+        form.save()
+
+    return render(request, 'ocena.html', {'form': form})
 
 
 '''

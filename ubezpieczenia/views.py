@@ -10,6 +10,12 @@ def wszystkie_ubezpieczenia(request):
     wszystkie = Ubezpieczenie.objects.all()
     return render(request, 'ubezpieczenia.html', {'ubezpieczenie': wszystkie})
 
+def login(request):
+    return render(request, 'login.html')
+def index(request):
+    wszystkie = Ubezpieczenie.objects.all()
+    return render(request, 'index.html', {'ubezpieczenie': wszystkie})
+
 
 '''
 from django.shortcuts import render, get_object_or_404, redirect

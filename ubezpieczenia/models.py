@@ -21,6 +21,7 @@ class Ubezpieczenie(models.Model):
     data_zakonczenia = models.DateField(null=True, blank=True)
     znizka = models.DecimalField(max_digits=4, decimal_places=2,
                                       null=True, blank=True)
+    kategoria = models.TextField(default="")
     plakat = models.ImageField(upload_to="plakaty", null=True, blank=True)
     dodatkowe = models.OneToOneField(DodatkoweInfo, on_delete=models.CASCADE, null=True, blank=True)
 
